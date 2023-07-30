@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'dash.css' %}">
+    <title>Document</title>
+    <style>
+        #main {
+            display: flex;
+            justify-content: space-between;
+            height: 10vh;
+            background-color: rgb(97, 134, 156);
+        }
+
+        #div1 {
+            margin-left: .7rem;
+        }
+
+        #div2 {
+            margin-top: 1.4rem;
+        }
+
+        #link {
+            font-size: 2rem;
+            text-decoration: none;
+            color: black;
+            border: 2px solid black;
+            border-radius: 7px 5px 6px;
+            padding: 4px;
+            margin: 2rem;
+            margin-right: 2rem;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: rgb(163, 173, 163);
+        }
+
+        form {
+            border: 2px solid black;
+            padding: .4rem;
+            width: 35%;
+            margin: auto;
+            background-color: rgb(201, 185, 164);
+        }
+
+        input {
+            width: 98%;
+        }
+
+        button {
+            margin-bottom: 1rem;
+            padding: .3rem;
+            width: 80%;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(146, 9, 9);
+        }
+
+        #h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="div1">
+            <h1>Welcome, {{ User.first_name }} </h1>
+        </div>
+        <div id="main">
+            <div id="div2"><a id="link" href="view_notes">See Your Notes</a></div>
+            <div id="div2"><a id="link" href="logout">LogOut</a></div>
+
+        </div>
+    </div>
+    <br><br>
+    <h1 id="h1">Add your note :</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        <input type="text" name="utitle" id="title" required>
+        <br><br>
+        <label for="Description">Description:</label>
+        <textarea type="text" id="Description" name="utextarea" cols="65" rows="15" required></textarea>
+        <br><br>
+        <center><button type="submit">Add note</button></center>
+
+
+    </form>
+
+</body>
+
+</html>

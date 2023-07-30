@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'L_style.css' %}">
+    <title>Document</title>
+    <style>
+        body {
+
+            background-color: rgb(189, 178, 189);
+        }
+
+        span {
+            color: rgb(28, 28, 73);
+        }
+
+        form {
+            border: 2px solid black;
+            padding: .3rem;
+            width: 35%;
+            margin: auto;
+            background-color: rgb(226, 215, 202);
+        }
+
+        input {
+            width: 98%;
+        }
+
+        button {
+            margin-bottom: 1rem;
+            padding: .3rem;
+            width: 80%;
+        }
+
+        h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(146, 9, 9);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <h1>Create your<span> Sticky Notes </span> here for free </h1>
+        <h1 id="h1">Login Here ! </h1>
+        <form method="POST">
+            {% csrf_token %}
+            <br>
+            <label for="name">Username:</label>
+            <input name="uname" id="name" type="text" required >
+            <br><br>
+            <label for="pass">Password:</label>
+            <input name="upass" id="pass" type="password"required>
+
+            <br><br><br>
+            <center><button type="submit">Login</button></center>
+            <center>
+                <h3>Didn't have an account ?<a href="Signup">SignUp</a></h3>
+            </center>
+
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            border: 2px solid black;
+            padding: .3rem;
+            width: 30%;
+            margin: auto;
+            background-color: rgb(187, 236, 236);
+        }
+
+        input {
+            width: 98%;
+        }
+
+        textarea{
+            width: 98%;
+        }
+
+        button {
+            margin-bottom: 1rem;
+            padding: .3rem;
+            width: 80%;
+        }
+
+        h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 6rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(146, 9, 9);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Do your changes here !! </h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="title">Title:</label>
+        <input id="title" name="utitle" type="text" value="{{ note.title }}"   ><br><br>
+        <label for="desc">Description:</label>
+        <textarea id="desc" name="udesc" cols="20" rows="6" >{{ note.description }}</textarea><br><br>
+        <center><button type="submit">Save your changes</button></center>
+        
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'S_style.css' %}">
+    <title>Document</title>
+    <style>
+        form {
+            border: 2px solid black;
+            padding: .3rem;
+            width: 35%;
+            margin: auto;
+            background-color: rgb(187, 236, 236);
+        }
+
+        input {
+            width: 98%;
+        }
+
+        button {
+            margin-bottom: 1rem;
+            padding: .3rem;
+            width: 80%;
+        }
+
+        h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SignUp</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Username:</label>
+        <input name="uname" id="name" type="text" required>
+        <br><br>
+
+        <label for="fname">First_name:</label>
+        <input name="fname" id="fname" type="text" required>
+        <br><br>
+
+        <label for="lname">Last_name:</label>
+        <input name="lname" id="lname" type="text">
+        <br><br>
+
+        <label for="pass">Password:</label>
+        <input name="upass" id="pass" type="password" required>
+
+
+
+
+        <br><br>
+        <center><button type="submit">SignUp</button></center>
+
+
+    </form>
+</body>
+
+</html>
