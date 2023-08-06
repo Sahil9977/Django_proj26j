@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Note
+from django.contrib.auth.decorators import login_required
 
 def login(request):
     if request.method =="POST":
@@ -21,6 +22,7 @@ def login(request):
         
     return render(request,'login.html')
 
+@login_required(login_url="login")
 def dashboard(request):
     User = request.user
     if request.method =='POST':
@@ -40,6 +42,7 @@ def dashboard(request):
     }
     return render(request,'dashboard.html' ,data)
 
+@login_required(login_url="login")
 def notes(request):
      user = request.user
      notes = Note.objects.filter(user = user)
@@ -72,11 +75,12 @@ def signup(request):
 
     return render(request,'signup.html')
 
-
+@login_required(login_url="login")
 def logout(request):
     auth.logout(request)
     return redirect("login")
 
+@login_required(login_url="login")
 def edit(request ,slug):
     note = Note.objects.get(slug=slug)
     if request.method=="POST":

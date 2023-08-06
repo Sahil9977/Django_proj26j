@@ -101,8 +101,8 @@
             <h1>Welcome, {{ user.first_name }} !! </h1>
         </div>
         <div id="main">
-            <div id="div2"><a id="link" href="dashboard">Add note</a></div>
-            <div id="div2"><a id="link" href="logout">LogOut</a></div>
+            <div id="div2"><a id="link" href="{% url 'dashboard' %}">Add note</a></div>
+            <div id="div2"><a id="link" href="{% url 'logout' %}">LogOut</a></div>
 
         </div>
     </div>
@@ -117,8 +117,8 @@
                 <h2>--Description--</h2>
             </center>
             <textarea rows="6"> {{ note.description }} </textarea><br><br>
-            <center><a id="edit" class="fn" href="edit_your_note/{{ note.slug }}">Edit this note</a></center><br>
-            <center><a id="delete" class="fn" href="delete_this_note/{{ note.id }}">Delete</a></center><br>
+            <center><a id="edit" class="fn" href="{% url 'edit' note.slug %}">Edit this note</a></center><br>
+            <center><a id="delete" class="fn" href="{% url 'delete' note.id %}">Delete</a></center><br>
 
         </div>
         {% endfor %}

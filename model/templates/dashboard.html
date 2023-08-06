@@ -79,8 +79,8 @@
             <h1>Welcome, {{ User.first_name }} </h1>
         </div>
         <div id="main">
-            <div id="div2"><a id="link" href="view_notes">See Your Notes</a></div>
-            <div id="div2"><a id="link" href="logout">LogOut</a></div>
+            <div id="div2"><a id="link" href="{% url 'notes' %}">See Your Notes</a></div>
+            <div id="div2"><a id="link" href="{% url 'logout' %}">LogOut</a></div>
 
         </div>
     </div>
